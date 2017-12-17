@@ -1,0 +1,34 @@
+$(SML_LIB)/basis/basis.mlb;
+
+(* 汎用集合 *)
+lib/set.sml;
+
+(* 汎用ハッシュマップ *)
+lib/hash.sml;
+
+(* 文法規則 *)
+src/rule.sml;
+
+(* 文法定義 *)
+define_rule/def1.sml;
+
+(* データ構造 *)
+src/data_structure.sml;
+
+(* nullable *)
+src/nullable.sml;
+
+(* FIRST *)
+src/first.sml;
+
+(* FOLLOW *)
+src/follow.sml;
+
+(* 予測型構文解析表 *)
+src/parsing_table.sml;
+
+(* 表示用ユーティリティ *)
+src/display.sml;
+
+(* トップレベル環境 *)
+src/toplevel.sml;
