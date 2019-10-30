@@ -1,7 +1,9 @@
 (* 汎用集合 *)
+use "lib/set.sig";
 use "lib/set_smlnj.sml";
 
 (* 汎用マップ *)
+use "lib/map.sig";
 use "lib/map_smlnj.sml";
 
 (* 文法規則 *)

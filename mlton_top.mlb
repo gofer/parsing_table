@@ -1,9 +1,11 @@
 $(SML_LIB)/basis/basis.mlb;
 
 (* 汎用集合 *)
+lib/set.sig;
 lib/set.sml;
 
 (* 汎用マップ *)
+lib/map.sig;
 lib/map.sml;
 
 (* 文法規則 *)
