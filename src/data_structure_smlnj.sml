@@ -20,7 +20,7 @@ structure SymbolSet = SetFunctor
     OrderdSymbol
   );
 
-structure SymbolBooleanHash = HashFunctor
+structure SymbolBooleanMap = MapFunctor
   (
     OrderdSymbol
   )
@@ -28,9 +28,9 @@ structure SymbolBooleanHash = HashFunctor
     type value_type = bool
   );
 
-structure Nullable = SymbolBooleanHash;
+structure Nullable = SymbolBooleanMap;
 
-structure SymbolSetHash = HashFunctor
+structure SymbolSetMap = MapFunctor
   (
     OrderdSymbol
   )
@@ -38,8 +38,8 @@ structure SymbolSetHash = HashFunctor
     type value_type = SymbolSet.set
   );
 
-structure First  = SymbolSetHash;
-structure Follow = SymbolSetHash;
+structure First  = SymbolSetMap;
+structure Follow = SymbolSetMap;
 
 structure OrderdRule :> ORD_KEY 
   where type ord_key = Rule
@@ -82,7 +82,7 @@ structure OrderdSymbolTuple :> ORD_KEY
           else EQUAL; 
 end;
 
-structure ParsingTable = HashFunctor
+structure ParsingTable = MapFunctor
   (
     OrderdSymbolTuple
   )

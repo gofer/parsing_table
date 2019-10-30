@@ -3,8 +3,8 @@ $(SML_LIB)/basis/basis.mlb;
 (* 汎用集合 *)
 lib/set.sml;
 
-(* 汎用ハッシュマップ *)
-lib/hash.sml;
+(* 汎用マップ *)
+lib/map.sml;
 
 (* 文法規則 *)
 src/rule.sml;

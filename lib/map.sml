@@ -1,30 +1,30 @@
-signature HASH = sig
+signature MAP = sig
   exception NoSuchKey;
   
   eqtype   key_type;
     type value_type;
   
-  type hash;
+  type map;
   
-  val empty      : hash;
-  val insert     : hash * key_type * value_type -> hash;
-  val find       : hash * key_type -> value_type;
-  val keys       : hash -> key_type list;
-  val equal      : ((value_type * value_type) -> bool) -> (hash * hash) -> bool;
-  val filter     : (value_type -> bool) -> hash -> hash;
-  val filteri    : ((key_type * value_type) -> bool) -> hash -> hash;
-  val listItems  : hash -> value_type list;
-  val listItemsi : hash -> (key_type * value_type) list;
+  val empty      : map;
+  val insert     : map * key_type * value_type -> map;
+  val find       : map * key_type -> value_type;
+  val keys       : map -> key_type list;
+  val equal      : ((value_type * value_type) -> bool) -> (map * map) -> bool;
+  val filter     : (value_type -> bool) -> map -> map;
+  val filteri    : ((key_type * value_type) -> bool) -> map -> map;
+  val listItems  : map -> value_type list;
+  val listItemsi : map -> (key_type * value_type) list;
 end;
 
-functor HashFunctor 
+functor MapFunctor 
   (
     eqtype   key_type
       type value_type
-  ) :> HASH 
+  ) :> MAP 
   where type   key_type =   key_type
   where type value_type = value_type
-  where type       hash = (key_type * value_type) list
+  where type       map = (key_type * value_type) list
   = 
 struct
   exception NoSuchKey;
@@ -32,9 +32,9 @@ struct
   type   key_type =   key_type;
   type value_type = value_type;
   
-  type hash = (key_type * value_type) list;
+  type map = (key_type * value_type) list;
 
-  val empty = nil : hash;
+  val empty = nil : map;
 
   fun insert (nil, key, value) = [(key, value)]
     | insert (((k, v)::hs), key, value) = 
@@ -69,11 +69,11 @@ struct
   fun listItems nil = nil
     | listItems ((k,v)::hs) = v::(listItems hs);
   
-  fun listItemsi hash = hash;
+  fun listItemsi map = map;
 end;
 
 (*
-structure IntegerHash = HashFunctor
+structure IntegerMap = MapFunctor
   (
     type   key_type = string
     type value_type = int

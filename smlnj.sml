@@ -1,14 +1,14 @@
 (* 汎用集合 *)
 use "lib/set_smlnj.sml";
 
-(* 汎用ハッシュマップ *)
-use "lib/hash_smlnj.sml";
+(* 汎用マップ *)
+use "lib/map_smlnj.sml";
 
 (* 文法規則 *)
 use "src/rule.sml";
 
 (* 文法規則のインポート *)
-use "define_rule/def1.sml";
+use "define_rule/def3.sml";
 
 (* データ構造 *)
 use "src/data_structure_smlnj.sml";

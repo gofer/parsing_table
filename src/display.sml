@@ -9,15 +9,15 @@ fun hashToString to_string hash = let
   fun tupleToString (k, v) = (symbolToString k) ^ ": " ^ (to_string v);
 in listToString tupleToString hash end;
 
-fun symbolBooleanHashToString hash = 
+fun symbolBooleanMapToString hash = 
   hashToString 
     Bool.toString 
-    (SymbolBooleanHash.listItemsi hash);
+    (SymbolBooleanMap.listItemsi hash);
 
-fun symbolSetHashToString hash = 
+fun symbolSetMapToString hash = 
   hashToString 
     (fn v => listToString symbolToString (SymbolSet.listItems v)) 
-    (SymbolSetHash.listItemsi hash);
+    (SymbolSetMap.listItemsi hash);
 
 fun parsingTableToString parsing_table =
   listToString

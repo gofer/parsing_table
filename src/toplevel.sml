@@ -19,13 +19,13 @@ fun isNonTerminalSymbol x =
   of (NonTerminalSymbol s) => true
    | (   TerminalSymbol s) => false;
 
-val nullable = SymbolBooleanHash.filteri (fn (x, ys) => isNonTerminalSymbol x) nullable;
-val    first =     SymbolSetHash.filteri (fn (x, ys) => isNonTerminalSymbol x)    first;
-val   follow =     SymbolSetHash.filteri (fn (x, ys) => isNonTerminalSymbol x)   follow;
+val nullable = SymbolBooleanMap.filteri (fn (x, ys) => isNonTerminalSymbol x) nullable;
+val    first =     SymbolSetMap.filteri (fn (x, ys) => isNonTerminalSymbol x)    first;
+val   follow =     SymbolSetMap.filteri (fn (x, ys) => isNonTerminalSymbol x)   follow;
 
-val () = print ("nullable = " ^ (symbolBooleanHashToString nullable) ^ "\n");
-val () = print ("FIRST    = " ^ (    symbolSetHashToString    first) ^ "\n");
-val () = print ("FOLLOW   = " ^ (    symbolSetHashToString   follow) ^ "\n");
+val () = print ("nullable = " ^ (symbolBooleanMapToString nullable) ^ "\n");
+val () = print ("FIRST    = " ^ (    symbolSetMapToString    first) ^ "\n");
+val () = print ("FOLLOW   = " ^ (    symbolSetMapToString   follow) ^ "\n");
 
 val () = print ("ParsingTable = " ^ (parsingTableToString parsing_table) ^ "\n");
 
